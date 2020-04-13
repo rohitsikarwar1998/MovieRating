@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainLoginActivity extends AppCompatActivity {
 
@@ -14,6 +15,8 @@ public class MainLoginActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
 
+    final String userNameStatic="RohitSikarwar";
+    final String passWord="123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +56,19 @@ public class MainLoginActivity extends AppCompatActivity {
         String userName=username.getText().toString().trim();
         String userPassword=password.getText().toString().trim();
 
-        User user =new User(userName,userPassword);
 
-        SessionManagement sessionManagement=new SessionManagement(this);
-        sessionManagement.saveSession(user);
+        if(userName==userNameStatic&&userPassword==passWord){
+            User user =new User(userName,userPassword);
 
-        moveToNextActivity();
+            SessionManagement sessionManagement=new SessionManagement(this);
+            sessionManagement.saveSession(user);
+
+            moveToNextActivity();
+        }
+
+        else {
+            Toast.makeText(this, "Enter Correct Detail", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

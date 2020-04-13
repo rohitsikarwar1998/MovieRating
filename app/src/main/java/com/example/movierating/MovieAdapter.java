@@ -20,9 +20,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private Context mContext;
     private List<MovieData> mMovieList;
 
-    public MovieAdapter(Context context, List<MovieData> movieData) {
+    private onMovieClickListener mOnMovieClickListener;
+
+    public MovieAdapter(Context context, List<MovieData> movieData,onMovieClickListener onMovieClickListener) {
         mContext = context;
         mMovieList = movieData;
+        this.mOnMovieClickListener=onMovieClickListener;
     }
 
     @NonNull
@@ -30,7 +33,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(mContext);
         View view =inflater.inflate(R.layout.movie_list_layout,null);
-        return new MovieViewHolder(view);
+        return new MovieViewHolder(view,mOnMovieClickListener);
     }
 
     @Override
@@ -48,19 +51,31 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return mMovieList.size();
     }
 
-    class MovieViewHolder extends RecyclerView.ViewHolder{
+    class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView poster;
         TextView rating,movieName;
 
-         public MovieViewHolder(@NonNull View itemView) {
+        onMovieClickListener mOnMovieClickListener;
+
+         public MovieViewHolder(@NonNull View itemView,onMovieClickListener movieClickListener) {
              super(itemView);
 
              poster=itemView.findViewById(R.id.movie_poster);
              rating=itemView.findViewById(R.id.movie_rating);
              movieName=itemView.findViewById(R.id.movie_name);
 
-
+             this.mOnMovieClickListener=movieClickListener;
+             itemView.setOnClickListener(this);
          }
+
+        @Override
+        public void onClick(View v) {
+             mOnMovieClickListener.onMovieClick(getAbsoluteAdapterPosition());
+        }
+    }
+
+     public interface onMovieClickListener{
+        void onMovieClick(int position);
      }
 }

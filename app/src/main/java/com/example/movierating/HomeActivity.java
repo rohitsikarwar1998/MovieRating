@@ -22,7 +22,7 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements MovieAdapter.onMovieClickListener{
 
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
@@ -46,6 +46,15 @@ public class HomeActivity extends AppCompatActivity {
         letsDoSomeNetworking();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
     }
 
     public void Logout(View view) {
@@ -74,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
                 super.onSuccess(statusCode, headers, response);
                 mMovieList=fromJson(response);
 
-                mMovieAdapter=new MovieAdapter(HomeActivity.this,mMovieList);
+                mMovieAdapter=new MovieAdapter(HomeActivity.this,mMovieList,HomeActivity.this);
                 mRecyclerView.setAdapter(mMovieAdapter);
 
             }
@@ -121,5 +130,12 @@ public class HomeActivity extends AppCompatActivity {
 
         return mMovieDataList;
 
+    }
+
+    @Override
+    public void onMovieClick(int position) {
+           Intent intent =new Intent(this,MovieInfo.class);
+           intent.putExtra("id",mMovieList.get(position).getMovieId());
+           startActivity(intent);
     }
 }
