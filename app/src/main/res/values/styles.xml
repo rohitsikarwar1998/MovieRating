@@ -33,4 +33,10 @@
         <item name="android:singleLine">true</item>
     </style>
 
+    <style name="ButtonBorder.Accent_Logout">
+        <item name="android:background">@drawable/bg_button_outline_logout</item>
+        <item name="android:textColor">@color/btn_color_logout</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
 </resources>

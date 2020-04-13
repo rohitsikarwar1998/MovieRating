@@ -1,17 +1,30 @@
 package com.example.movierating;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MovieData {
     private  String movieName;
     private  String rating;
     private  String imagePath;
+    private  int movieId;
 
-    public MovieData(String movieName, String rating, String imagePath) {
+    public MovieData(String movieName, String rating, String imagePath,int movieId) {
         this.movieName = movieName;
         this.rating = rating;
         this.imagePath = imagePath;
+        this.movieId=movieId;
     }
 
 
+
+    public int getMovieId() {
+        return movieId;
+    }
 
     public String getMovieName() {
         return movieName;
