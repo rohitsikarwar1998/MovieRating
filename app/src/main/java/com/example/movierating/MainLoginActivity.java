@@ -57,7 +57,7 @@ public class MainLoginActivity extends AppCompatActivity {
         String userPassword=password.getText().toString().trim();
 
 
-        if(userName==userNameStatic&&userPassword==passWord){
+        if(userName.equals(userNameStatic)&&userPassword.equals(passWord)){
             User user =new User(userName,userPassword);
 
             SessionManagement sessionManagement=new SessionManagement(this);
