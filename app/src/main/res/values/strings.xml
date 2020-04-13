@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieRating</string>
+    <string name="login_button_name">Login</string>
+    <string name="username_hint_text">Username</string>
+    <string name="password_hint_text">Password</string>
+    <string name="dummy_text">Dummy text for </string>
+</resources>

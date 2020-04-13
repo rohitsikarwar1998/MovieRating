@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_activity_bg_color"
+    tools:context=".MainLoginActivity">
+
+    <EditText
+        android:id="@+id/username_edit_text"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_round"
+        android:drawableLeft="@drawable/username_icon"
+        android:drawablePadding="10dp"
+        android:hint="@string/username_hint_text"
+        android:inputType="text"
+        android:textColor="@color/edit_text_color"
+        android:paddingLeft="10dp"
+        android:textSize="20sp"
+        android:textColorHint="@color/edit_text_hint_color"
+        android:layout_marginTop="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/password_edit_text"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:background="@drawable/edit_round"
+        android:textColor="@color/edit_text_color"
+        android:drawableLeft="@drawable/password_icon"
+
+        android:drawablePadding="10dp"
+        android:hint="@string/password_hint_text"
+        android:inputType="numberPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/edit_text_hint_color"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_edit_text" />
+
+    <Button
+        android:id="@+id/login_button"
+        style="@style/ButtonBorder.Accent_Login"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_button_name"
+        android:textAllCaps="false"
+        android:onClick="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

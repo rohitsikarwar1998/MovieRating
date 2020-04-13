@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#27165B</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
+    <color name="colorAccent">#DF8D73</color>
+    <color name="colorOverlay">@color/btn_color</color>
+    <color name="btn_color">@color/colorPrimary</color>
+    <color name="edit_text_color">@color/colorAccent</color>
+    <color name="edit_bg_color">@color/colorPrimary</color>
+    <color name="login_activity_bg_color">@color/colorAccent</color>
+    <color name="edit_text_hint_color">#DF8D73</color>
+    <color name="icon_color">#FFDF8D73</color>
+</resources>
